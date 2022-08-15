@@ -11,7 +11,7 @@ dataBase = mysql.connector.connect(
 cursorObject = dataBase.cursor()
   
 # creating table
-emp = "select * fom employees limit 10"
+emp = "select * from employees limit 10"
   
 # table created
 cursorObject.execute(emp)
