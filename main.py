@@ -6,11 +6,9 @@ dataBase = mysql.connector.connect(
   user ="training",
   passwd ="training",
   database = "employees"
-)
+)  
 
-# preparing a cursor object
-cursorObject = dataBase.cursor()
-  
+#
 # creating table
 dept = "select * from employees limit 10"
   
