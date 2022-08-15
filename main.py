@@ -12,14 +12,13 @@ dataBase = mysql.connector.connect(
 cursorObject = dataBase.cursor()
   
 # creating table
-emp = "select * from employees limit 10"
+dept = "select employees, departments from employees limit 10"
   
 # table created
 cursorObject.execute(emp)
 
 result = cursorObject.fetchall()
 
-for i in result:
-    print(i)
+print(result)
   
 #app.run(host="localhost", port =8001)
