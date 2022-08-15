@@ -20,4 +20,3 @@ cursorObject.execute(emp)
 result = cursorObject.fetchall()
 
 print(result)
-  
