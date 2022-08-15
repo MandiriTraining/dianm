@@ -15,7 +15,7 @@ cursorObject = dataBase.cursor()
 dept = "select employees, departments from employees limit 10"
   
 # table created
-cursorObject.execute(emp)
+cursorObject.execute(dept)
 
 result = cursorObject.fetchall()
 
