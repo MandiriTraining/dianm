@@ -1,10 +1,23 @@
-from flask import Flask
+from flask import Flask, render_template, request
+import mysql.connector
 
-app = Flask(__name__)
+dataBase = mysql.connector.connect(
+  host ="188.166.221.246",
+  user ="training",
+  passwd ="training"
+)
 
-@app.route('/', methods=['GET', 'POST'])
-def index():
-    return "Hello Nuclear Geeks"
+# preparing a cursor object
+cursorObject = dataBase.cursor()
+  
+# creating table
+emp = "select * fom employees limit 10"
+  
+# table created
+cursorObject.execute(emp)
 
-if __name__ == '__main__':
-    app.run()
+result = cursorObject.fetchall()
+
+print(result)
+  
+app.run(host="localhost", port =5000)
