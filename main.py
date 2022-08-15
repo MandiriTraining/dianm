@@ -20,6 +20,6 @@ cursorObject.execute(emp)
 result = cursorObject.fetchall()
 
 for i in result:
-    print(result)
+    print(i)
   
 #app.run(host="localhost", port =8001)
