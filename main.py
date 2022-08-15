@@ -21,4 +21,3 @@ result = cursorObject.fetchall()
 
 print(result)
   
-#app.run(host="localhost", port =8001)
