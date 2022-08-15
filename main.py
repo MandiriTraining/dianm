@@ -12,7 +12,7 @@ dataBase = mysql.connector.connect(
 cursorObject = dataBase.cursor()
   
 # creating table
-dept = "select employees, departments from employees limit 10"
+dept = "select * from employees limit 10"
   
 # table created
 cursorObject.execute(dept)
