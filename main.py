@@ -32,6 +32,12 @@ def getProducts():
   result = cursorObject.fetchall()
   response = jsonify(result)
 
+@app.route('/departmentid', methods = ["GET"])
+def getProducts(id):
+  cursorObject.execute("select * from departments where department_id" + id)
+  result = cursorObject.fetchall()
+  response = jsonify(result)
+
 if __name__ == '__main__':
    app.run(host = "0.0.0.0", port = 8001,debug = True)
    app.run()
