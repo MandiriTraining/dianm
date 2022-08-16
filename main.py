@@ -1,6 +1,6 @@
 from flask import Flask, request
 from flask import jsonify
-import database as db
+import mysql.connector
 
 dataBase = mysql.connector.connect(
   host ="188.166.221.246",
