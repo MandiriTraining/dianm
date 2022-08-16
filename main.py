@@ -1,7 +1,6 @@
-from flask import Flask, render_template, request
+from flask import Flask, request
 from flask import jsonify
-import mysql.connector
-
+import database as db
 
 dataBase = mysql.connector.connect(
   host ="188.166.221.246",
@@ -10,7 +9,7 @@ dataBase = mysql.connector.connect(
   database = "retail_db"
 )  
 
-@app.route('/', methods = ["GET"]) 
+@app.route('/') 
 def getAllCustomer():
   cust = "select * from customers limit 10"
   # query customer
@@ -19,20 +18,20 @@ def getAllCustomer():
   result = cursorObject.fetchall()
   response = jsonify(result)
 
-@app.route('/customerid', methods = ["GET"])
+@app.route('/customerid/<id>')
 def getCustomerbyID(id):
   cust = "Select * from customers where customer_id = " + id
   cursorObject.execute("cust")
   result = cursorObject.fetchone()
   response = jsonify(result)
 
-@app.route('/departments', methods = ["GET"])
+@app.route('/departments')
 def getProducts():
   cursorObject.execute("select * from departments")
   result = cursorObject.fetchall()
   response = jsonify(result)
 
-@app.route('/departmentid', methods = ["GET"])
+@app.route('/departmentid/<id>')
 def getProducts(id):
   cursorObject.execute("select * from departments where department_id" + id)
   result = cursorObject.fetchall()
