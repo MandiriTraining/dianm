@@ -20,6 +20,8 @@ def getAllCustomer():
   cursorObject.execute(cust)
   result = cursorObject.fetchall()
   response = jsonify(result)
+  return response
+
 
 @app.route('/customerid/<id>')
 def getCustomerbyID(id):
@@ -28,6 +30,8 @@ def getCustomerbyID(id):
   cursorObject.execute("cust")
   result = cursorObject.fetchone()
   response = jsonify(result)
+  return response
+
 
 @app.route('/departments')
 def getProducts():
@@ -35,6 +39,7 @@ def getProducts():
   cursorObject.execute("select * from departments")
   result = cursorObject.fetchall()
   response = jsonify(result)
+  return response
 
 @app.route('/departmentid/<id>')
 def getProductsbyID(id):
@@ -42,6 +47,7 @@ def getProductsbyID(id):
   cursorObject.execute("select * from departments where department_id" + id)
   result = cursorObject.fetchall()
   response = jsonify(result)
+  return response
 
 if __name__ == '__main__':
    app.run(host = "0.0.0.0", port = 8001,debug = True)
