@@ -34,7 +34,7 @@ def getProducts():
   response = jsonify(result)
 
 @app.route('/departmentid/<id>')
-def getProducts(id):
+def getProductsbyID(id):
   cursorObject.execute("select * from departments where department_id" + id)
   result = cursorObject.fetchall()
   response = jsonify(result)
