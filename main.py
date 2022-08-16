@@ -16,6 +16,7 @@ def getAllCustomer():
   cust = "select * from customers limit 10"
   # query customer
   # execute
+  cursorObject = dataBase.cursor(dictionary=True)
   cursorObject.execute(cust)
   result = cursorObject.fetchall()
   response = jsonify(result)
@@ -23,18 +24,21 @@ def getAllCustomer():
 @app.route('/customerid/<id>')
 def getCustomerbyID(id):
   cust = "Select * from customers where customer_id = " + id
+  cursorObject = dataBase.cursor(dictionary=True)
   cursorObject.execute("cust")
   result = cursorObject.fetchone()
   response = jsonify(result)
 
 @app.route('/departments')
 def getProducts():
+  cursorObject = dataBase.cursor(dictionary=True)
   cursorObject.execute("select * from departments")
   result = cursorObject.fetchall()
   response = jsonify(result)
 
 @app.route('/departmentid/<id>')
 def getProductsbyID(id):
+  cursorObject = dataBase.cursor(dictionary=True)
   cursorObject.execute("select * from departments where department_id" + id)
   result = cursorObject.fetchall()
   response = jsonify(result)
